@@ -9,6 +9,7 @@ import android.view.ViewGroup
 
 
 import com.example.vinicecream.R
+import com.example.vinicecream.viewmodel.IceCreamDetailViewModel
 
 class IceCreamDetail : Fragment() {
 
@@ -22,7 +23,7 @@ class IceCreamDetail : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.ice_cream_detail_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_ice_cream_detail, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

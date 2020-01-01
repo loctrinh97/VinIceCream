@@ -1,4 +1,4 @@
-package com.example.vinicecream.view.fragment
+package com.example.vinicecream.viewmodel
 
 import androidx.lifecycle.ViewModel
 

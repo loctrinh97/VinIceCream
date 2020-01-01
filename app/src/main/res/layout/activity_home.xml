@@ -20,7 +20,8 @@
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:elevation="16dp"
-        app:cnb_menuResource="@menu/bottom_menu">
+        app:cnb_menuResource="@menu/bottom_menu"
+        android:id="@+id/homeMenu">
     </com.ismaeldivita.chipnavigation.ChipNavigationBar>
 
 </LinearLayout>

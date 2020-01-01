@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="#000"
-        android:text="Hello" />
+        android:text="My Order" />
 
 </FrameLayout>
