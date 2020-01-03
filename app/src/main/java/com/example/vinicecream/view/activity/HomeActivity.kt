@@ -1,42 +1,121 @@
 package com.example.vinicecream.view.activity
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.Toast
+import android.widget.ViewFlipper
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.vinicecream.R
+import com.example.vinicecream.model.Products
 import com.example.vinicecream.view.fragment.Home
 import com.example.vinicecream.view.fragment.Me
 import com.example.vinicecream.view.fragment.MyOrder
-import com.squareup.picasso.Picasso
+import com.example.vinicecream.viewmodel.APIServices
+import com.example.vinicecream.view.adapter.ProductAdapter
+import com.example.vinicecream.viewmodel.RestClient
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeActivity : AppCompatActivity() {
 
+    private var myAdapter: ProductAdapter? = null
+    private var myRecyclerView: RecyclerView? = null
+    private var imageList = intArrayOf(R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four)
+
+
+    override fun onResume() {
+        //Create a handler for the RetrofitInstance interface
+        val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
+
+        val call = service.allUsers
+
+        //Execute the request asynchronously.
+        call.enqueue(object : Callback<List<Products>> {
+
+            //Handle successfully response
+            override
+            fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
+                loadDataList(response.body())
+            }
+
+            //Handle failure
+            override
+            fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
+                Toast.makeText(this@HomeActivity, "Unable to load users", Toast.LENGTH_SHORT).show()
+            }
+        })
+        super.onResume()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         switchTab()
         homeMenu.setItemSelected(getTabId(0))
-      //  actionViewFlipper()
-    }
 
-    fun actionViewFlipper() {
-        var adsArray: ArrayList<String> = ArrayList()
-        adsArray.add("https://icecreamandshop.com/images/slide101.0cab2ddd4a06cea0.jpg")
-        adsArray.add("https://icecreamandshop.com/images/slide105.d61a79903895e7b2.jpg")
-        adsArray.add("https://icecreamandshop.com/images/slide102.df0f0ec716e466e3.jpg")
-        adsArray.add("https://icecreamandshop.com/images/slide103.55735ac132a08805.jpg")
-        for (i in 0 until adsArray.size step 1) {
-            var imageView: ImageView = ImageView(this)
-            Picasso.with(applicationContext).load(adsArray.get(i)).into(imageView)
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY)
-            viewFlipperAds.addView(imageView)
+        val viewFlipper = findViewById<ViewFlipper>(R.id.viewFlipper)
+        if (viewFlipper != null) {
+            viewFlipper.setInAnimation(applicationContext, android.R.anim.slide_in_left)
+            viewFlipper.setOutAnimation(applicationContext, android.R.anim.slide_out_right)
         }
-        viewFlipperAds.setFlipInterval(5000)
-        viewFlipperAds.setAutoStart(true)
 
+        if (viewFlipper != null) {
+            for (image in imageList) {
+                val imageView = ImageView(this)
+                val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                layoutParams.setMargins(30, 30, 30, 30)
+                layoutParams.gravity = Gravity.CENTER
+                imageView.layoutParams = layoutParams
+                imageView.setImageResource(image)
+                viewFlipper.addView(imageView)
+            }
+        }
+
+
+
+
+
+
+        //Create a handler for the RetrofitInstance interface
+        val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
+
+        val call = service.allUsers
+
+        //Execute the request asynchronously.
+        call.enqueue(object : Callback<List<Products>> {
+
+            //Handle successfully response
+            override
+            fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
+                loadDataList(response.body())
+            }
+
+            //Handle failure
+            override
+            fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
+                Toast.makeText(this@HomeActivity, "Unable to load users", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
+
+
+    private fun loadDataList(usersList: List<Products>?) {
+        myRecyclerView = findViewById(R.id.recyclerProduct)
+        myAdapter =
+            ProductAdapter(usersList!!)
+        val layoutManager = GridLayoutManager(this@HomeActivity,3)
+            //LinearLayoutManager(this@HomeActivity)
+        myRecyclerView!!.layoutManager = layoutManager
+        myRecyclerView!!.adapter = myAdapter
+    }
+
 
     private fun getTabId(index: Int) = homeMenu.getChildAt(index).id
     private fun switchTab() {

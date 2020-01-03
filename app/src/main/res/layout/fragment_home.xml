@@ -3,33 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context=".view.fragment.IceCreamDetail">
 
     <ViewFlipper
-        android:id="@+id/viewFlipperAds"
+        android:id="@+id/viewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:autoStart="true"
+        android:flipInterval="2000">
     </ViewFlipper>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sản phẩm của chúng tôi"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"></TextView>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFF34C"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:text="Product">
-        </TextView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerProduct"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:background="@color/white"></androidx.recyclerview.widget.RecyclerView>
     </FrameLayout>
 </LinearLayout>
