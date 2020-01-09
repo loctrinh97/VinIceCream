@@ -1,4 +1,4 @@
-package com.example.vinicecream.viewmodel
+package com.example.vinicecream.view.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

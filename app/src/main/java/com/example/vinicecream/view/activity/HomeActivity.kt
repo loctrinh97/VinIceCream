@@ -1,12 +1,8 @@
 package com.example.vinicecream.view.activity
 
 
-import android.app.PendingIntent.getActivity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,12 +11,10 @@ import com.example.vinicecream.model.Products
 import com.example.vinicecream.view.fragment.Home
 import com.example.vinicecream.view.fragment.Me
 import com.example.vinicecream.view.fragment.MyOrder
-import com.example.vinicecream.viewmodel.APIServices
+import com.example.vinicecream.view.api.APIServices
 import com.example.vinicecream.view.adapter.ProductAdapter
-import com.example.vinicecream.viewmodel.RestClient
+import com.example.vinicecream.view.api.RestClient
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_me.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

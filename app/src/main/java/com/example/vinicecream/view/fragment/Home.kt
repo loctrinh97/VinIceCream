@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinicecream.R
 import com.example.vinicecream.model.Products
-import com.example.vinicecream.viewmodel.APIServices
+import com.example.vinicecream.view.api.APIServices
 import com.example.vinicecream.view.adapter.ProductAdapter
-import com.example.vinicecream.viewmodel.RestClient
+import com.example.vinicecream.view.api.RestClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,7 +56,8 @@ class Home : Fragment() {
 
     override fun onResume() {
         //Create a handler for the RetrofitInstance interface
-        val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
+        val service = RestClient.retrofitInstance!!.create(
+            APIServices::class.java)
 
         val call = service.allUsers
 

@@ -1,4 +1,4 @@
-package com.example.vinicecream.viewmodel
+package com.example.vinicecream.view.api
 
 import com.example.vinicecream.model.Products
 import retrofit2.Call

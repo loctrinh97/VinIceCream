@@ -10,19 +10,19 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_store_black"
-        android:title="Trang Chủ"
+        android:title="Home"
         app:cnb_iconColor="@color/white">
     </item>
     <item
         android:id="@+id/myOrder"
         android:icon="@drawable/ic_shopping_cart_black"
-        android:title="Đơn Hàng"
+        android:title="Order"
         app:cnb_iconColor="@color/white">
     </item>
     <item
         android:id="@+id/me"
         android:icon="@drawable/ic_person_black"
-        android:title="Tôi"
+        android:title="Me"
         app:cnb_iconColor="@color/white">
     </item>
 

@@ -14,7 +14,10 @@ class LoginActivity : AppCompatActivity() {
         signUp.setOnClickListener{
             val intent : Intent = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intent)
-
+        }
+        signIn.setOnClickListener{
+            val intent : Intent = Intent(this@LoginActivity, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 }
