@@ -1,14 +1,13 @@
 package com.example.vinicecream.view.activity
 
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.Toast
-import android.widget.ViewFlipper
+import android.widget.*
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinicecream.R
@@ -20,6 +19,8 @@ import com.example.vinicecream.viewmodel.APIServices
 import com.example.vinicecream.view.adapter.ProductAdapter
 import com.example.vinicecream.viewmodel.RestClient
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_me.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
 
     private var myAdapter: ProductAdapter? = null
     private var myRecyclerView: RecyclerView? = null
-    private var imageList = intArrayOf(R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four)
+
 
 
     override fun onResume() {
@@ -59,29 +60,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         switchTab()
         homeMenu.setItemSelected(getTabId(0))
-
-        val viewFlipper = findViewById<ViewFlipper>(R.id.viewFlipper)
-        if (viewFlipper != null) {
-            viewFlipper.setInAnimation(applicationContext, android.R.anim.slide_in_left)
-            viewFlipper.setOutAnimation(applicationContext, android.R.anim.slide_out_right)
-        }
-
-        if (viewFlipper != null) {
-            for (image in imageList) {
-                val imageView = ImageView(this)
-                val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                layoutParams.setMargins(30, 30, 30, 30)
-                layoutParams.gravity = Gravity.CENTER
-                imageView.layoutParams = layoutParams
-                imageView.setImageResource(image)
-                viewFlipper.addView(imageView)
-            }
-        }
-
-
-
-
-
 
         //Create a handler for the RetrofitInstance interface
         val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
@@ -117,6 +95,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
+
     private fun getTabId(index: Int) = homeMenu.getChildAt(index).id
     private fun switchTab() {
         homeMenu.setOnItemSelectedListener {
@@ -139,4 +118,6 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/ice_cream_background">
+    android:background="@drawable/background1">
 
     <EditText
         android:id="@+id/userName"

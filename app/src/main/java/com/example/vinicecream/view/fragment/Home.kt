@@ -1,10 +1,14 @@
 package com.example.vinicecream.view.fragment
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.Toast
+import android.widget.ViewFlipper
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,13 +24,35 @@ import retrofit2.Response
 class Home : Fragment() {
     private var myAdapter: ProductAdapter? = null
     private var myRecyclerView: RecyclerView? = null
+    private var imageList = intArrayOf(R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        var mView = LayoutInflater.from(context).inflate(R.layout.fragment_home, container, false)
+        val viewFlipper = mView.findViewById<ViewFlipper>(R.id.viewFlipper)
+        if (viewFlipper != null) {
+            viewFlipper.setInAnimation(context, android.R.anim.slide_in_left)
+            viewFlipper.setOutAnimation(context, android.R.anim.slide_out_right)
+        }
+
+        if (viewFlipper != null) {
+            for (image in imageList) {
+                val imageView = ImageView(context)
+                val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                layoutParams.setMargins(30, 30, 30, 30)
+                layoutParams.gravity = Gravity.CENTER
+                imageView.layoutParams = layoutParams
+                imageView.setImageResource(image)
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY)
+                viewFlipper.addView(imageView)
+            }
+        }
+        return mView
 
     }
+
 
     override fun onResume() {
         //Create a handler for the RetrofitInstance interface
