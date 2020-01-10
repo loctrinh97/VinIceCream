@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".view.fragment.IceCreamDetail">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:background="#00BCD4"
+        android:layout_height="280dp"
+        android:background="@color/tong"
         android:orientation="vertical">
 
         <ImageView
@@ -25,44 +24,44 @@
         <Button
             android:id="@+id/btnLoginMe"
             android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="#FF0000"
-            android:text="Đăng nhập"
-            android:textColor="@color/white"
+            android:background="#FFFFFF"
+            android:text="LOGIN"
+            android:textColor="@color/tong"
             android:textSize="15sp"></Button>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="260dp"
-        android:background="#00BCD4">
+        android:layout_marginTop="280dp"
+        android:background="#26577E">
 
         <GridLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <Button android:layout_width="match_parent"
-                android:text="Mã giảm giá"
-                android:textColor="#000000"
+                android:text="Voucher"
+                android:textColor="#26577E"
                 android:background="@color/white"
                 ></Button>
             <Button android:layout_width="match_parent"
                 android:id="@+id/btnMyLocation"
-                android:text="Địa chỉ"
-                android:textColor="#000000"
+                android:text="Address"
+                android:textColor="#26577E"
                 android:background="@color/white"
                 ></Button>
             <Button android:layout_width="match_parent"
-                android:text="Cài đặt"
-                android:textColor="#000000"
+                android:text="Setting"
+                android:textColor="#26577E"
                 android:background="@color/white"
                 ></Button>
             <Button android:layout_width="match_parent"
-                android:text="Dành cho người bán hàng"
-                android:textColor="#000000"
+                android:text="For shop owner"
+                android:textColor="#26577E"
                 android:background="@color/white"
                 ></Button>
         </GridLayout>

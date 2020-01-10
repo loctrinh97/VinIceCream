@@ -29,65 +29,31 @@ class HomeActivity : AppCompatActivity() {
     override fun onResume() {
         //Create a handler for the RetrofitInstance interface
         val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
-
         val call = service.allUsers
 
         //Execute the request asynchronously.
-        call.enqueue(object : Callback<List<Products>> {
-
-            //Handle successfully response
-            override
-            fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
-                loadDataList(response.body())
-            }
-
-            //Handle failure
-            override
-            fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
-                Toast.makeText(this@HomeActivity, "Unable to load users", Toast.LENGTH_SHORT).show()
-            }
-        })
+//        call.enqueue(object : Callback<List<Products>> {
+//            //Handle successfully response
+//            override
+//            fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
+//                loadDataList(response.body())
+//            }
+//
+//            //Handle failure
+//            override
+//            fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
+//                Toast.makeText(this@HomeActivity, "Unable to load users", Toast.LENGTH_SHORT).show()
+//            }
+//        })
         super.onResume()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         switchTab()
         homeMenu.setItemSelected(getTabId(0))
-
-        //Create a handler for the RetrofitInstance interface
-        val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
-
-        val call = service.allUsers
-
-        //Execute the request asynchronously.
-        call.enqueue(object : Callback<List<Products>> {
-
-            //Handle successfully response
-            override
-            fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
-                loadDataList(response.body())
-            }
-
-            //Handle failure
-            override
-            fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
-                Toast.makeText(this@HomeActivity, "Unable to load users", Toast.LENGTH_SHORT).show()
-            }
-        })
     }
-
-
-    private fun loadDataList(usersList: List<Products>?) {
-        myRecyclerView = findViewById(R.id.recyclerProduct)
-        myAdapter =
-            ProductAdapter(usersList!!)
-        val layoutManager = GridLayoutManager(this@HomeActivity,3)
-            //LinearLayoutManager(this@HomeActivity)
-        myRecyclerView!!.layoutManager = layoutManager
-        myRecyclerView!!.adapter = myAdapter
-    }
-
 
 
     private fun getTabId(index: Int) = homeMenu.getChildAt(index).id

@@ -1,73 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/background1">
+    android:background="#26577E"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo"></ImageView>
+
 
     <EditText
+
         android:id="@+id/userName"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         android:hint="Name"
         android:inputType="text"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp">
-    </EditText>
+        android:paddingLeft="20dp"
+        android:textColor="#26577E"
+        android:textColorHint="#26577E"
+        android:textSize="15sp"></EditText>
+
+
     <EditText
         android:id="@+id/phone"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
-        android:hint="Phone"
-        android:inputType="text"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp">
-    </EditText>
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:paddingLeft="20dp"
+        android:textColor="#26577E"
+        android:textColorHint="#26577E"
+        android:textSize="15sp"></EditText>
+
     <EditText
         android:id="@+id/email"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
-        android:hint="Email"
-        android:inputType="text"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp">
-    </EditText>
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:textColor="#26577E"
+        android:textColorHint="#26577E"
+        android:textSize="15sp"></EditText>
+
     <EditText
         android:id="@+id/account"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
         android:hint="Account"
         android:inputType="text"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp">
-    </EditText>
+        android:paddingLeft="20dp"
+        android:textColor="#26577E"
+        android:textColorHint="#26577E"
+        android:textSize="15sp"></EditText>
+
     <EditText
         android:id="@+id/password"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp">
-    </EditText>
+        android:paddingLeft="20dp"
+        android:textColor="#26577E"
+        android:textColorHint="#26577E"
+        android:textSize="15sp"></EditText>
+
     <EditText
         android:id="@+id/passwordRetype"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="#FFFFFF"
         android:hint="Re-type Password"
         android:inputType="textPassword"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp">
-    </EditText>
+        android:paddingLeft="20dp"
+        android:textColor="#26577E"
+        android:textColorHint="#26577E"
+        android:textSize="15sp"></EditText>
+
     <Button
         android:id="@+id/signUpcf"
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:text="Sign Up">
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:onClick="funSignIn"
+        android:text="Sign Up"
+        android:textColor="@color/tong"
+        android:textSize="20sp">
 
     </Button>
 </LinearLayout>

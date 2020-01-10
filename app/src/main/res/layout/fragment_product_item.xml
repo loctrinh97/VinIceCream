@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:id="@+id/productItem"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 <androidx.cardview.widget.CardView
@@ -16,15 +16,15 @@
     <LinearLayout
         android:gravity="center"
         android:layout_gravity="center"
+        android:background="@color/tong"
         android:layout_width="wrap_content"
         android:orientation="vertical"
         android:layout_height="wrap_content">
         <ImageView
+            android:src="@drawable/ice"
             android:id="@+id/imageViewProduct"
-            android:layout_margin="5dp"
             android:layout_width="100dp"
             android:layout_height="100dp">
-
         </ImageView>
 
         <TextView
@@ -33,16 +33,15 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Ten san pham"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="10sp">
-
         </TextView>
 
         <TextView
             android:id="@+id/textViewProductPrice"
             android:textSize="17sp"
             android:gravity="center"
-            android:text="price"
+            android:text="20$"
             android:textColor="#FF0000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
