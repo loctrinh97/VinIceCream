@@ -58,18 +58,14 @@ class Home : Fragment() {
         //Create a handler for the RetrofitInstance interface
         val service = RestClient.retrofitInstance!!.create(
             APIServices::class.java)
-
-        val call = service.allUsers
-
+        val call = service.allProducts
         //Execute the request asynchronously.
         call.enqueue(object : Callback<List<Products>> {
-
             //Handle successfully response
             override
             fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
                 loadDataList(response.body())
             }
-
             //Handle failure
             override
             fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
@@ -77,14 +73,11 @@ class Home : Fragment() {
             }
         })
         super.onResume()
-
     }
-    private fun loadDataList(usersList: List<Products>?) {
+    private fun loadDataList(productName: List<Products>?) {
         myRecyclerView = view?.findViewById(R.id.recyclerProduct)
-        myAdapter =
-            ProductAdapter(usersList!!)
+        myAdapter = ProductAdapter(productName!!)
         val layoutManager = GridLayoutManager(context,3)
-        //LinearLayoutManager(this@HomeActivity)
         myRecyclerView!!.layoutManager = layoutManager
         myRecyclerView!!.adapter = myAdapter
     }

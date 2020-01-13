@@ -16,14 +16,14 @@
         android:src="@drawable/logo"></ImageView>
 
     <EditText
-        android:id="@+id/account"
+        android:id="@+id/emailLogin"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:background="#FFFFFF"
         android:textColor="#26577E"
-        android:hint="Account"
+        android:hint="Email"
         android:textColorHint="#26577E"
         android:textSize="15sp"
         android:inputType="text"
@@ -31,7 +31,7 @@
         tools:ignore="InvalidId"></EditText>
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordLogin"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -52,7 +52,7 @@
         android:visibility="gone"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/password"
+        android:layout_below="@id/passwordLogin"
         android:text="Wrong account or password - Try again"
         android:textColor="#FF0909"
         android:textSize="15sp"></TextView>

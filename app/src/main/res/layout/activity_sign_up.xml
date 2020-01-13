@@ -16,7 +16,7 @@
 
     <EditText
 
-        android:id="@+id/userName"
+        android:id="@+id/userNameSignUp"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -31,7 +31,7 @@
 
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/phoneSignUp"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -45,7 +45,7 @@
         android:textSize="15sp"></EditText>
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailSignUp"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -58,22 +58,9 @@
         android:textColorHint="#26577E"
         android:textSize="15sp"></EditText>
 
-    <EditText
-        android:id="@+id/account"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:background="#FFFFFF"
-        android:hint="Account"
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        android:textColor="#26577E"
-        android:textColorHint="#26577E"
-        android:textSize="15sp"></EditText>
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordSignUp"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -87,7 +74,7 @@
         android:textSize="15sp"></EditText>
 
     <EditText
-        android:id="@+id/passwordRetype"
+        android:id="@+id/passwordRetypeSignUp"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
@@ -99,15 +86,26 @@
         android:textColor="#26577E"
         android:textColorHint="#26577E"
         android:textSize="15sp"></EditText>
+    <TextView
+        android:id="@+id/signUpNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/passwordLogin"
+        android:text="Create account failure - Try again"
+        android:textColor="#FF0909"
+        android:textSize="15sp"></TextView>
 
     <Button
-        android:id="@+id/signUpcf"
+        android:id="@+id/confirmSignUp"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@color/white"
-        android:onClick="funSignIn"
+        android:onClick="funSignUp"
         android:text="Sign Up"
         android:textColor="@color/tong"
         android:textSize="20sp">

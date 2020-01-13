@@ -21,33 +21,6 @@ import retrofit2.Response
 
 class HomeActivity : AppCompatActivity() {
 
-    private var myAdapter: ProductAdapter? = null
-    private var myRecyclerView: RecyclerView? = null
-
-
-
-    override fun onResume() {
-        //Create a handler for the RetrofitInstance interface
-        val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
-        val call = service.allUsers
-
-        //Execute the request asynchronously.
-//        call.enqueue(object : Callback<List<Products>> {
-//            //Handle successfully response
-//            override
-//            fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
-//                loadDataList(response.body())
-//            }
-//
-//            //Handle failure
-//            override
-//            fun onFailure(call: Call<List<Products>>, throwable: Throwable) {
-//                Toast.makeText(this@HomeActivity, "Unable to load users", Toast.LENGTH_SHORT).show()
-//            }
-//        })
-        super.onResume()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
