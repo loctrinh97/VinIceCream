@@ -23,7 +23,7 @@ class SignUpActivity : AppCompatActivity() {
     var phoneSignUp : EditText? = null
     var emailSignUp : EditText? = null
     var passwordSignUp : EditText? = null
-    var retypePasswordSignUp : EditText? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,6 @@ class SignUpActivity : AppCompatActivity() {
         phoneSignUp = findViewById(R.id.phoneSignUp)
         emailSignUp = findViewById(R.id.emailSignUp)
         passwordSignUp = findViewById(R.id.passwordSignUp)
-        retypePasswordSignUp = findViewById(R.id.passwordRetypeSignUp)
 
     }
 
@@ -42,7 +41,7 @@ class SignUpActivity : AppCompatActivity() {
         val signUpPhone = phoneSignUp!!.text.toString()
         val signUpEmail = emailSignUp!!.text.toString()
         val signUpPassword = passwordSignUp!!.text.toString()
-        val signUpRetype = retypePasswordSignUp!!.text.toString()
+
 
         var userSignUp =  Profile()
         userSignUp.email = signUpEmail
@@ -51,6 +50,8 @@ class SignUpActivity : AppCompatActivity() {
         userSignUp.userName = signUpName
         userSignUp.role = "CUSTOMER"
         userSignUp.total_cash = 0.0f
+        userSignUp.birthday = "2019/12/20"
+        userSignUp.gender ="true"
 
 
         val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
@@ -58,7 +59,7 @@ class SignUpActivity : AppCompatActivity() {
 
         signUp.enqueue(object : Callback<Profile> {
             override fun onResponse(call: Call<Profile>, response: Response<Profile>) {
-                var userSignUp=response.body() as Profile
+                var userSignUp=response.body()
                 if(userSignUp==null){
                     signUpNotification.visibility=View.VISIBLE
                 }else{

@@ -5,14 +5,16 @@
     android:layout_margin="5dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
 <androidx.cardview.widget.CardView
     android:id="@+id/cardViewProduct"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 <FrameLayout
+    android:id="@+id/itemProduct"
     android:layout_width="wrap_content"
-
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:onClick="onItemClick">
     <LinearLayout
         android:gravity="center"
         android:layout_gravity="center"

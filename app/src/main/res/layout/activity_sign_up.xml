@@ -73,19 +73,6 @@
         android:textColorHint="#26577E"
         android:textSize="15sp"></EditText>
 
-    <EditText
-        android:id="@+id/passwordRetypeSignUp"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:background="#FFFFFF"
-        android:hint="Re-type Password"
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        android:textColor="#26577E"
-        android:textColorHint="#26577E"
-        android:textSize="15sp"></EditText>
     <TextView
         android:id="@+id/signUpNotification"
         android:layout_width="wrap_content"
@@ -105,7 +92,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@color/white"
-        android:onClick="funSignUp"
+        android:onClick="onSignUp"
         android:text="Sign Up"
         android:textColor="@color/tong"
         android:textSize="20sp">

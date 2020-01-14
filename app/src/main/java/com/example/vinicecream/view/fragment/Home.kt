@@ -1,5 +1,6 @@
 package com.example.vinicecream.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -13,10 +14,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinicecream.R
+import com.example.vinicecream.model.CartItem
 import com.example.vinicecream.model.Products
+import com.example.vinicecream.view.activity.SignUpActivity
 import com.example.vinicecream.view.api.APIServices
 import com.example.vinicecream.view.adapter.ProductAdapter
 import com.example.vinicecream.view.api.RestClient
+import kotlinx.android.synthetic.main.fragment_product_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,9 +33,11 @@ class Home : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         var mView = LayoutInflater.from(context).inflate(R.layout.fragment_home, container, false)
         val viewFlipper = mView.findViewById<ViewFlipper>(R.id.viewFlipper)
+
         if (viewFlipper != null) {
             viewFlipper.setInAnimation(context, android.R.anim.slide_in_left)
             viewFlipper.setOutAnimation(context, android.R.anim.slide_out_right)
@@ -65,6 +71,11 @@ class Home : Fragment() {
             override
             fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
                 loadDataList(response.body())
+//                productItem.setOnClickListener{
+//                    var itemDetail = ItemDetail()
+//                    supportFragmentManager.beginTransaction().replace(R.id.container_home, itemDetail)
+//                        .commit()
+//                }
             }
             //Handle failure
             override
@@ -75,10 +86,12 @@ class Home : Fragment() {
         super.onResume()
     }
     private fun loadDataList(productName: List<Products>?) {
-        myRecyclerView = view?.findViewById(R.id.recyclerProduct)
-        myAdapter = ProductAdapter(productName!!)
-        val layoutManager = GridLayoutManager(context,3)
-        myRecyclerView!!.layoutManager = layoutManager
-        myRecyclerView!!.adapter = myAdapter
+        if (productName != null) {
+            myRecyclerView = view?.findViewById(R.id.recyclerProduct)
+            myAdapter = ProductAdapter(context!!, productName)
+            val layoutManager = GridLayoutManager(context, 3)
+            myRecyclerView!!.layoutManager = layoutManager
+            myRecyclerView!!.adapter = myAdapter
+        }
     }
 }

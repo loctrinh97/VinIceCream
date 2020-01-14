@@ -39,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
                         .commit()
                 }
                 R.id.myOrder -> {
+
                     var myOrder = MyOrder()
                     supportFragmentManager.beginTransaction().replace(R.id.container_home, myOrder)
                         .commit()

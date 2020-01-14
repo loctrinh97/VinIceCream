@@ -18,11 +18,5 @@ class Products {
     @SerializedName("update_at")
     var updateAt : String? = null
     @SerializedName("price")
-    var price : Float? = null
-//    @SerializedName("cartItems")
-//    var cartItems : Array? = null
-//    @SerializedName("transactionDetails")
-//    var transactionDetails : Array? = null
-//    @SerializedName("storeHaveProducts")
-//    var storeHaveProducts : Array? = null
+    var price : String? = null
 }

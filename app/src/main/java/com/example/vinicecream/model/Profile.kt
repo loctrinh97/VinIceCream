@@ -18,4 +18,8 @@ class Profile {
     var role : String? = null
     @SerializedName("total_cash")
     var total_cash : Float? = null
+    @SerializedName("birthday")
+    var birthday : String? = null
+    @SerializedName("gender")
+    var gender : String? = null
 }

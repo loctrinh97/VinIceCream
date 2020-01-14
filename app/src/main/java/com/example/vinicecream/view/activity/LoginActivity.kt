@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.example.vinicecream.R
+import com.example.vinicecream.model.Products
 import com.example.vinicecream.model.User
 import com.example.vinicecream.view.api.APIServices
 import com.example.vinicecream.view.api.RestClient
@@ -44,16 +46,18 @@ class LoginActivity : AppCompatActivity() {
         userLogin.email = loginEmail
         userLogin.password = loginPassword
 
+
         val service = RestClient.retrofitInstance!!.create(APIServices::class.java)
-        var login=service.checkLogin(userLogin)
+        var login = service.checkLogin(userLogin)
+
         login.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                var userLogin=response.body() as User
+                var userLogin=response.body()
                 if(userLogin==null){
                     logInNotification.visibility=View.VISIBLE
                 }else{
                     var intent=Intent(this@LoginActivity,HomeActivity::class.java)
-                    intent.putExtra("userLoginId", userLogin.id)
+                    intent.putExtra("userLoginId", userLogin.email)
                     startActivity(intent)
                 }
             }
