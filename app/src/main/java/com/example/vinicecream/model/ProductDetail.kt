@@ -1,11 +1,8 @@
 package com.example.vinicecream.model
 
 import com.google.gson.annotations.SerializedName
-import java.sql.Array
-import java.sql.Time
 
-class Products {
-
+class ProductDetail {
     @SerializedName("id")
     var id : Int? = null
     @SerializedName("product_name")

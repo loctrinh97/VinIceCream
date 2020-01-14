@@ -71,11 +71,6 @@ class Home : Fragment() {
             override
             fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
                 loadDataList(response.body())
-//                productItem.setOnClickListener{
-//                    var itemDetail = ItemDetail()
-//                    supportFragmentManager.beginTransaction().replace(R.id.container_home, itemDetail)
-//                        .commit()
-//                }
             }
             //Handle failure
             override

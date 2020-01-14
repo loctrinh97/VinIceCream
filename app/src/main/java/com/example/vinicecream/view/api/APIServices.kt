@@ -1,14 +1,8 @@
 package com.example.vinicecream.view.api
 
-import com.example.vinicecream.model.Products
-import com.example.vinicecream.model.Profile
-import com.example.vinicecream.model.Transaction
-import com.example.vinicecream.model.User
+import com.example.vinicecream.model.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface APIServices {
     //Specify the request type and pass the related URL
@@ -20,6 +14,12 @@ interface APIServices {
 
     @get:GET("/product")
     val allOrder: Call<List<Transaction>>
+
+
+    @GET("/product/{id}")
+    fun productDetail(
+        @Path("id") id: Int
+    ): Call<ProductDetail>
 
     @POST("/user/login")
     @Headers("Content-Type: application/json")

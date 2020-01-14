@@ -1,15 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable
+        name="ProductsDetail"
+        type="com.example.vinicecream.model.ProductDetail" />
+</data>
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00BCD4"
-    tools:context=".view.fragment.IceCreamDetail">
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/itemDetailF">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="#000"
-        android:text="Detail" />
+        <ImageView
+            android:id="@+id/imgItemDetail"
+            android:src="@{ProductsDetail.images}"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+        </ImageView>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/dtProductName"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#172AF8"
+            android:text="@{ProductsDetail.productName}"></TextView>
 
-</FrameLayout>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/dtDescription"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tong"
+            android:text="@{ProductsDetail.desctiption}">
+
+        </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tong"
+                    android:text="Price: "></TextView>
+                <TextView
+                    android:id="@+id/dtPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tong"
+                    android:text="@{ProductsDetail.price}"></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tong"
+                    android:text=" USD"></TextView>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tong"
+                    android:text="Quantity"></TextView>
+
+                <EditText
+                    android:id="@+id/dtQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="1"
+                    android:inputType="number"
+                    android:textColor="@color/tong">
+                </EditText>
+            </LinearLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@color/tong"
+        android:textColor="@color/white"
+        android:onClick="basicAlert"
+        android:text="Buy it"></Button>
+
+        </LinearLayout>
+</layout>
